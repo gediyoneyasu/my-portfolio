@@ -570,6 +570,10 @@ header .navbar {
     width: 95vw;
     padding: 8px;
   }
+   .hero-image-wrapper img {
+    margin-top: 52px;
+
+  }
 }
 
 /* Responsive media query code for max width 640px */
