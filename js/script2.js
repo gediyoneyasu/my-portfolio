@@ -67,28 +67,36 @@ window.addEventListener('load', function() {
     }
 });
 
-const firebaseConfig = {
-    apiKey: "AIzaSy...[your full key]",
-    authDomain: "gedportfoliodb.firebaseapp.com",
-    projectId: "gedportfoliodb",
-    storageBucket: "gedportfoliodb.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abcdef123456"
-  };
+// Firebase form handler (attach to your contact form)
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector('.contact-form');
+  if (form && window.db) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();  // Stop default submit
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+      // Get form data
+      const name = form.querySelector('input[name="name"]').value;
+      const email = form.querySelector('input[name="email"]').value;
+      const message = form.querySelector('textarea[name="message"]').value;
 
-  // Optional: Initialize services (e.g., db for Firestore)
-  const db = firebase.firestore();
-
-// Test Firebase connection (runs after init)
-console.log('Firebase initialized:', firebase.apps.length > 0 ? 'Yes' : 'No');
-
-// In your form submit handler
-db.collection('contacts').add({
-  name: document.querySelector('input[name="name"]').value,
-  email: document.querySelector('input[name="email"]').value,
-  message: document.querySelector('textarea[name="message"]').value,
-  timestamp: firebase.firestore.FieldValue.serverTimestamp()
-}).then(() => console.log('Data saved!')).catch(e => console.error(e));
+      // Save to Firestore
+      window.db.collection('contacts').add({
+        name: name,
+        email: email,
+        message: message,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      })
+      .then(() => {
+        console.log('Data saved to Firebase!');
+        // Show success (your green message)
+        const messageDiv = document.getElementById('form-message');
+        if (messageDiv) messageDiv.style.display = 'block';
+        form.reset();  // Clear form
+      })
+      .catch((error) => {
+        console.error('Error saving: ', error);
+        alert('Oops! Try again.');
+      });
+    });
+  }
+});
