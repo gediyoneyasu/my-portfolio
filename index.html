@@ -174,13 +174,22 @@
                     <p>www.gediyoneyasupersonalportifol.com</p>
                 </li>
             </ul>
-            <form action="#" class="contact-form">
-                <input type="text" placeholder="Your name" class="form-input" required />
-                <input type="email" placeholder="Your email" class="form-input" required />
-                <textarea placeholder="Your message" class="form-input" required></textarea>
-                <button type="submit" class="button submit-button"
-                    style="background-color: rgb(59, 185, 185);">Submit</button>
-            </form>
+     <!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/mrbonwze"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
         </div>
     </section>
     <!-- Footer section -->
