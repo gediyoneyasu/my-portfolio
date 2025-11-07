@@ -81,3 +81,14 @@ const firebaseConfig = {
 
   // Optional: Initialize services (e.g., db for Firestore)
   const db = firebase.firestore();
+
+// Test Firebase connection (runs after init)
+console.log('Firebase initialized:', firebase.apps.length > 0 ? 'Yes' : 'No');
+
+// In your form submit handler
+db.collection('contacts').add({
+  name: document.querySelector('input[name="name"]').value,
+  email: document.querySelector('input[name="email"]').value,
+  message: document.querySelector('textarea[name="message"]').value,
+  timestamp: firebase.firestore.FieldValue.serverTimestamp()
+}).then(() => console.log('Data saved!')).catch(e => console.error(e));
