@@ -175,13 +175,16 @@
                 </li>
             </ul>
      <!-- modify this form HTML and place wherever you want your form -->
-  <form action="https://formspree.io/f/mrbonwze"  method="POST" class="contact-form">
-                <input type="text" placeholder="Your name" class="form-input" required />
-                <input type="email" placeholder="Your email" class="form-input" required />
-                <textarea placeholder="Your message" class="form-input" required></textarea>
-                <button type="submit" class="button submit-button"
-                    style="background-color: rgb(59, 185, 185);">Submit</button>
-            </form>
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Your name" class="form-input" required />
+    <input type="email" name="email" placeholder="Your email" class="form-input" required />
+    <textarea name="message" placeholder="Your message" class="form-input" required></textarea>
+    <!-- Honeypot for spam protection (hidden from users) -->
+    <input type="text" name="_gotcha" style="display:none !important;" />
+    <button type="submit" class="button submit-button" style="background-color: rgb(59, 185, 185);">Submit</button>
+</form>
+<!-- Success message (hidden until submit) -->
+<div id="form-message" style="display:none; color: green; margin-top: 10px; text-align: center; font-weight: bold;">Thanks! I'll get back to you soon.</div>
         </div>
     </section>
     <!-- Footer section -->
