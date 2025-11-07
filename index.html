@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gediyon-Eyasu_personal-portifol</title>
-<!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>  <!-- For database; add more for auth/analytics if needed -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style2.css">
+
+    <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>  <!-- For database; add more for auth/analytics if needed -->
 
 </head>
 
@@ -208,6 +210,26 @@
     </footer>
 
     <script src="js/script2.js"></script>
+    <script>
+  // Your Firebase config (copy from console > Project Settings > Your web app > Config)
+  const firebaseConfig = {
+    apiKey: "AIzaSy...[paste your full apiKey]",
+    authDomain: "gedportfoliodb.firebaseapp.com",
+    projectId: "gedportfoliodb",
+    storageBucket: "gedportfoliodb.appspot.com",
+    messagingSenderId: "123456789",  // Your number
+    appId: "1:123456789:web:abcdef123456"  // Your appId
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  // Initialize Firestore (for database)
+  const db = firebase.firestore();
+
+  // Make db global for use in script2.js
+  window.db = db;  // Exposes it to your external JS
+</script>
 </body>
 
 </html>
