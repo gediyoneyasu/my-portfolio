@@ -48,7 +48,7 @@ const textload = () => {
   }, 8000);
 }
 textload();
-
+setInterval(textload, 12000);
 
 
 // Formspree success feedback (detects redirect after submit)
