@@ -561,7 +561,12 @@ header .navbar {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
-
+  .hero-section .hero-details .allbody span {
+    font-size: 20px;
+  }
+  .hero-section .hero-details .subtitle {
+    font-size: 15px;
+  }
   .project-box {
     padding: 16px 8px;
   }
@@ -571,7 +576,7 @@ header .navbar {
     padding: 8px;
   }
    .hero-image-wrapper img {
-    margin-top: 52px;
+    margin-top: 55px;
 
   }
 }
