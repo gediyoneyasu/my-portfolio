@@ -48,3 +48,11 @@ const textload = () => {
   }, 8000);
 }
 textload();
+
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
+  // Optional: Show loading or success
+  setTimeout(() => {
+    document.getElementById('form-message').style.display = 'block';
+    this.reset(); // Clear form
+  }, 1000);
+});
