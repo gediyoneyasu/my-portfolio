@@ -66,3 +66,18 @@ window.addEventListener('load', function() {
         }
     }
 });
+
+const firebaseConfig = {
+    apiKey: "AIzaSy...[your full key]",
+    authDomain: "gedportfoliodb.firebaseapp.com",
+    projectId: "gedportfoliodb",
+    storageBucket: "gedportfoliodb.appspot.com",
+    messagingSenderId: "123456789",
+    appId: "1:123456789:web:abcdef123456"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  // Optional: Initialize services (e.g., db for Firestore)
+  const db = firebase.firestore();
