@@ -48,3 +48,21 @@ const textload = () => {
   }, 8000);
 }
 textload();
+
+
+
+// Formspree success feedback (detects redirect after submit)
+window.addEventListener('load', function() {
+    // Check if Formspree redirected with success hash
+    if (window.location.hash === '#success') {
+        const messageDiv = document.getElementById('form-message');
+        const form = document.querySelector('.contact-form');
+        if (messageDiv && form) {
+            messageDiv.style.display = 'block';
+            form.reset();  // Clear the form fields
+            window.location.hash = '';  // Remove #success from URL
+            // Optional: Smooth scroll to the message
+            messageDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+});
